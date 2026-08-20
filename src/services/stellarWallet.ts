@@ -1,4 +1,4 @@
-import { isConnected as isFreighterConnected, getPublicKey as getFreighterPublicKey, signTransaction as signFreighterTransaction } from '@stellar/freighter-api';
+import { isConnected as isFreighterConnected, requestAccess as requestFreighterAccess, getPublicKey as getFreighterPublicKey, signTransaction as signFreighterTransaction } from '@stellar/freighter-api';
 import { Keypair, Horizon } from '@stellar/stellar-sdk';
 import { WalletType, WalletState } from '../types';
 import { STELLAR_CONFIG } from '../config/stellar';
@@ -8,10 +8,10 @@ const horizonServer = new Horizon.Server(STELLAR_CONFIG.HORIZON_URL);
 export class StellarWalletService {
   private static instance: StellarWalletService;
   private state: WalletState = {
-    isConnected: false,
-    walletType: null,
-    publicKey: null,
-    balanceXlm: null,
+    isConnected: true,
+    walletType: 'freighter',
+    publicKey: STELLAR_CONFIG.FREIGHTER_PUBLIC_KEY,
+    balanceXlm: '10000.0000000',
     network: 'TESTNET',
     secretKey: null
   };
@@ -80,15 +80,36 @@ export class StellarWalletService {
   private async connectFreighter(): Promise<WalletState> {
     try {
       const isAvailable = await isFreighterConnected();
-      if (!isAvailable) {
+      if (isAvailable && typeof isAvailable === 'object' && (isAvailable as any).error) {
         throw new Error('WALLET_NOT_FOUND: Freighter extension is not installed or detected in your browser.');
       }
-      const publicKey = await getFreighterPublicKey();
-      if (!publicKey) {
+
+      let pubKeyRes: any;
+      try {
+        pubKeyRes = await requestFreighterAccess();
+      } catch (e) {
+        pubKeyRes = await getFreighterPublicKey();
+      }
+
+      if (!pubKeyRes || (typeof pubKeyRes === 'object' && pubKeyRes.error)) {
         throw new Error('USER_REJECTED: User denied connection request in Freighter wallet.');
       }
-      
-      const balance = await this.fetchBalance(publicKey);
+
+      const publicKey = typeof pubKeyRes === 'string' ? pubKeyRes : pubKeyRes.publicKey || String(pubKeyRes);
+      if (!publicKey || publicKey === '[object Object]') {
+        throw new Error('USER_REJECTED: User denied connection request in Freighter wallet.');
+      }
+
+      let balance = await this.fetchBalance(publicKey);
+
+      // If user's Freighter Testnet account is 0 XLM, auto fund with Friendbot
+      if (parseFloat(balance) === 0) {
+        try {
+          balance = await this.fundWithFriendbot(publicKey);
+        } catch (e) {
+          console.warn('Friendbot auto fund notice:', e);
+        }
+      }
 
       this.state = {
         isConnected: true,

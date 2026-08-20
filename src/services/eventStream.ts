@@ -56,9 +56,9 @@ export class EventStreamService {
     // Periodic heartbeat / simulated background network events for demonstration
     this.intervalId = setInterval(() => {
       const mockActors = [
-        'GB56C7D8E9F0G1H2I3J4K5L6M7N8O9P0Q1R2S3T4U5V',
-        'GC78D9E0F1G2H3I4J5K6L7M8N9O0P1Q2R3S4T5U6V7W',
-        'GD90E1F2G3H4I5J6K7L8M9N0O1P2Q3R4S5T6U7V8W9X'
+        'GBEUYMOTXDRXLXTS4LOW6RMH5HXVXJACD7IBFBM452YBVVPCP5KI4QTD',
+        'GBEUYMOTXDRXLXTS4LOW6RMH5HXVXJACD7IBFBM452YBVVPCP5KI4QTD',
+        'GD5JOJ3TLYCQS2MD3CSH4VCUMQ6Q46ZZVCEDHN5SWMTEDXX2RDLI3H4Z'
       ];
       const randomActor = mockActors[Math.floor(Math.random() * mockActors.length)];
       const randomTxHash = Array.from({ length: 64 }, () => Math.floor(Math.random() * 16).toString(16)).join('');

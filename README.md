@@ -24,6 +24,7 @@
 - **Soroban RPC URL**: `https://soroban-testnet.stellar.org`
 - **Horizon URL**: `https://horizon-testnet.stellar.org`
 - **Deployed Contract ID**: [`CBDUINKKJ5FDGVCMLFBVCUZSJVCDGQ2TJA2FMQ2VJVITMUJUGZNFVST2`](https://stellar.expert/explorer/testnet/contract/CBDUINKKJ5FDGVCMLFBVCUZSJVCDGQ2TJA2FMQ2VJVITMUJUGZNFVST2)
+- **Active Connected Freighter Wallet**: [`GBEUYMOTXDRXLXTS4LOW6RMH5HXVXJACD7IBFBM452YBVVPCP5KI4QTD`](https://stellar.expert/explorer/testnet/account/GBEUYMOTXDRXLXTS4LOW6RMH5HXVXJACD7IBFBM452YBVVPCP5KI4QTD)
 - **Deployer Public Key**: [`GD5JOJ3TLYCQS2MD3CSH4VCUMQ6Q46ZZVCEDHN5SWMTEDXX2RDLI3H4Z`](https://stellar.expert/explorer/testnet/account/GD5JOJ3TLYCQS2MD3CSH4VCUMQ6Q46ZZVCEDHN5SWMTEDXX2RDLI3H4Z)
 - **Verifiable Contract Call Transaction Hash**: [`4a91f82c3e41b9d0e2f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7`](https://stellar.expert/explorer/testnet/tx/4a91f82c3e41b9d0e2f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7)
 
