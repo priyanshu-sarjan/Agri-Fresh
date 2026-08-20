@@ -126,7 +126,7 @@ pub struct Checkpoint {
 
 ## 🏅 Submission Deliverables Summary
 
-- **Repository**: [https://github.com/priyanshu-sarjan/Stellar-Vidisha-](https://github.com/priyanshu-sarjan/Stellar-Vidisha-)
+- **Repository**: [https://github.com/priyanshu-sarjan/TraceLink](https://github.com/priyanshu-sarjan/TraceLink)
 - **Level**: Stellar Level 2 (Yellow Belt)
 - **Topic**: TraceLink Supply Chain Tracker
 - **License**: MIT
