@@ -267,3 +267,39 @@ body {
     box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
   }
 }
+
+/* Skeleton Loading Shimmer */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 25%, rgba(255, 255, 255, 0.08) 50%, rgba(255, 255, 255, 0.03) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Mobile-First Responsive Breakpoints */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  .modal-content {
+    padding: 1.25rem;
+    max-height: 95vh;
+    border-radius: 16px;
+  }
+
+  .glass-panel {
+    border-radius: 12px;
+    padding: 1rem !important;
+  }
+
+  header {
+    padding: 0.75rem 1rem !important;
+  }
+}
+
