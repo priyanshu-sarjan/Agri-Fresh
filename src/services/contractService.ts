@@ -31,7 +31,7 @@ export class AgriTraceContractService {
     return AgriTraceContractService.instance;
   }
 
-  public getContract(signerOrProvider: ethers.Signer | ethers.Provider) {
+  public getContract(signerOrProvider: any) {
     return new ethers.Contract(CONTRACT_ADDRESS, AGRI_TRACELINK_ABI, signerOrProvider);
   }
 }
