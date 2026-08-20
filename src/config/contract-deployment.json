@@ -1,0 +1,10 @@
+{
+  "contractId": "CBDUINKKJ5FDGVCMLFBVCUZSJVCDGQ2TJA2FMQ2VJVITMUJUGZNFVST2",
+  "deployerPublicKey": "GD5JOJ3TLYCQS2MD3CSH4VCUMQ6Q46ZZVCEDHN5SWMTEDXX2RDLI3H4Z",
+  "deployerSecretKey": "SB5EXXOAHXTE52HBLV33K5HLHW7L35YRM4RDOW5QSPZDYPNJOVTO7T2M",
+  "network": "TESTNET",
+  "rpcUrl": "https://soroban-testnet.stellar.org",
+  "horizonUrl": "https://horizon-testnet.stellar.org",
+  "deployTxHash": "4a91f82c3e41b9d0e2f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7",
+  "deployedAt": "2026-08-20T13:15:10.699Z"
+}
